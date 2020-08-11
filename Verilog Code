@@ -1,0 +1,30 @@
+module PWM(
+  input system_clock,			//system clock input
+  input increase_DUTY,			//input for increasing the duty cycle
+  input decrease_DUTY,			//input for reducing the duty cycle
+  output PWM_OUT);				//PWM output
+  
+  reg [3:0] DUTY_CYCLE = 5;		//register for the duty cycle
+  reg[3:0] counter_PWM = 0;		//register for the counter
+
+  
+  always @(posedge system_clock)  //Always block to reduce the clock frequency by 10 using a counter
+ 	begin
+   		counter_PWM <= counter_PWM + 1;
+   		if(counter_PWM>=9) 
+    		counter_PWM <= 0;
+ 	end
+     
+  always@(*)					//Always block for formation of Duty Cycle
+    begin
+      if(increase_DUTY==1'b1 && DUTY_CYCLE < 9)
+        	DUTY_CYCLE = DUTY_CYCLE + 1;
+      else if(decrease_DUTY==1'b1 && DUTY_CYCLE > 1)
+        	DUTY_CYCLE = DUTY_CYCLE - 1;
+    end
+  
+  assign PWM_OUT = (counter_PWM < DUTY_CYCLE) ? 1:0;  
+  //Wave output is 1 if the value of counter_PWM is less then the duty cycle and 0 if it is greater than the duty cycle
+  
+endmodule
+
