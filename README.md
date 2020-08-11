@@ -9,3 +9,8 @@ This verilog code implements a pulse width modulator with a pulse of time period
 ### Software Used
 
     Online Verilog Simulator, https://www.edaplayground.com/home
+
+
+#### Shortened URL of the repository
+    
+       https://git.io/JJyIy
