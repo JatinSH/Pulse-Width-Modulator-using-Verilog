@@ -1,5 +1,5 @@
 # Pulse Width Modulator using Verilog
-Developing a PWM of variable duty cycle using Verilog.
+## Developing a PWM of variable duty cycle using Verilog.
 
 As its name suggests, pulse width modulation speed control works by driving the motor with a series of “ON-OFF” pulses and varying the duty cycle, the fraction of time that the output voltage is “ON” compared to when it is “OFF”, of the pulses while keeping the frequency constant.
 
